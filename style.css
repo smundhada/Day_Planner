@@ -21,6 +21,24 @@ textarea{
   border-bottom: 10px solid black;
 }
 
+#clear-calendar{
+  background: none;
+  border: 2px solid;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+  border-color: #D4AF37;
+}
+
+#clear-calendar:hover{
+  background: #D4AF37;
+  background-color: #D4AF37;
+  border-color: black;
+}
+
 .description{
   white-space: pre-wrap;
 }
@@ -64,8 +82,13 @@ textarea{
   background-color: #06AED5;
   color: white;
 }
+.saveBtn:hover{
+  background-color: rgb(127, 187, 201);
+}
+}
 
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
+  background-color: rgb(127, 187, 201);
 }
