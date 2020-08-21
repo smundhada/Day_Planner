@@ -9,7 +9,7 @@ $(document).ready(function () {
 
           var currentTime = moment();
           var currentTimeHrs = currentTime.hour();
-
+          $("#currentDay").html(currentDateTime);
           setInterval(function () {
             var currentDateTime = moment().format(" dddd MMMM Do, YYYY h:mm:ss a");
             $("#currentDay").html(currentDateTime);
