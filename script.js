@@ -4,10 +4,16 @@ $(document).ready(function () {
     var userSchd; 
 
       function initializeSchd(){
-          
+
           getStoredSchd();
+
           var currentTime = moment();
           var currentTimeHrs = currentTime.hour();
+
+          setInterval(function () {
+            var currentDateTime = moment().format(" dddd MMMM Do, YYYY h:mm:ss a");
+            $("#currentDay").html(currentDateTime);
+          }, 100);
 
             $.each(userSchd, function( index, value ) {
             
@@ -17,6 +23,7 @@ $(document).ready(function () {
                 $(inputEl).val(value.text);
                 if (index < currentTimeHrs){
                   $(inputEl).addClass("past");
+                  $(inputEl).attr('disabled', 'disabled');
                 }else if (index > currentTimeHrs){
                   $(inputEl).addClass("future");
                 }else{
@@ -34,12 +41,17 @@ $(document).ready(function () {
             });
       }
 
+
       function getStoredSchd(){
         var workingHrsCheck = JSON.parse(localStorage.getItem("userSchd"));
           if (workingHrsCheck !== null) {
             userSchd = workingHrsCheck;
           }else {
             userSchd = {
+              5 : {'text' : '',},
+              6 : {'text' : '',},
+              7 : {'text' : '',},
+              8 : {'text' : '',},
               9 : {'text' : '',},
               10 : {'text' : '',},
               11 : {'text' : '',},
@@ -50,6 +62,14 @@ $(document).ready(function () {
               14 : {'text' : '',},
               16 : {'text' : '',},
               17 : {'text' : '',},
+              18 : {'text' : '',},
+              19 : {'text' : '',},
+              20 : {'text' : '',},
+              21 : {'text' : '',},
+              22 : {'text' : '',},
+              23 : {'text' : '',},
+              24 : {'text' : '',},
+
             }
             localStorage.setItem("userSchd", JSON.stringify(userSchd));
         }
